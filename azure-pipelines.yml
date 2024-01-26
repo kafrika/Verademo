@@ -76,3 +76,15 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
   displayName: 'Publica o artefato'
+
+
+- task: Veracode@3
+  inputs:
+    ConnectionDetailsSelection: 'Credentials'
+    apiId: 'ba0232efaef334357ca60d85c3a37732'
+    apiKey: '08b829e62e9b0ecb23c6d929429019a2d42243a27b4c590b28923a5b1b7d141b05afa0923d656abd343afc5bd6a3d6034343a68e06f2ef9cef9ffb63a6ad4b05'
+    veracodeAppProfile: 'Novo_Projeto26-01'
+    version: '$(build.buildNumber)'
+    filepath: '$(build.artifactstagingdirectory)'
+    sandboxName: 'SandboxNovo_Projeto26-01'
+    maximumWaitTime: '360'
