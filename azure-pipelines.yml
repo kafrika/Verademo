@@ -73,4 +73,13 @@ steps:
     addCustomTag: '$(build.buildNumber)'
     flawImportLimit: '1000'
   displayName: 'Veracode importando falhas'
-  
+
+- task: Veracode@3
+  inputs:
+    ConnectionDetailsSelection: 'Service Connection'
+    AnalysisService: 'Veracode'
+    veracodeAppProfile: 'Novo_Projeto26-01'
+    version: '$(build.buildNumber)'
+    filepath: '$(build.artifactstagingdirectory)'
+    sandboxName: 'SandboxNovo_Projeto26-01'
+    maximumWaitTime: '360'
